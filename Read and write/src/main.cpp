@@ -24,10 +24,21 @@ namespace nasp
 
 	std::string filePath = "myFile.txt";
 
+	void ReadFromFile() 
+	{
+		std::string fileContent;
+		std::ifstream openFile("myFile.txt");
+		while(std::getline(openFile, fileContent)) 
+		{
+			std::cout << "Filecontent: " << fileContent << "\n";
+		}
+		openFile.close();
+	}
 }
 
 int main()
 {
 	nasp::Print("Skriv något:");
 	nasp::WriteToFile(nasp::filePath);
+	nasp::ReadFromFile();
 }
